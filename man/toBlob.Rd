@@ -4,7 +4,8 @@
 \alias{toBlob}
 \title{Link Files folder}
 \usage{
-toBlob()
+toBlob(delete = F, account = "datarts", container = "proyects",
+  path = "files_project")
 }
 \description{
 Move files to Blob

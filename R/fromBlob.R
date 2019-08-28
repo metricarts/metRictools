@@ -1,11 +1,12 @@
 #' Link Files folder
 #'
-#' Move files to Blob
+#' Move files from Blob
 #' @export
 #' @author Daniel Fischer
 
-toBlob = function(delete = F,account="datarts",container="proyects",path = "files_project"){
+fromBlob = function(delete = F,account="datarts",container="proyects",path = "files_project",...){
   safeLibrary("rstudioapi")
+  suppressWarnings(dir.create('files'))
   #createAwsFilesRepo(path = path)
   
   current_repo = basename(getwd())
@@ -14,7 +15,7 @@ toBlob = function(delete = F,account="datarts",container="proyects",path = "file
             account = account,
             container = container,
             path = path)
-  cmd = sqlGsub('azcopy sync "./files/" "https://@account@.blob.core.windows.net/@container@/@path@/@proj@/files" @del@',param)
+  cmd = sqlGsub('azcopy sync "https://@account@.blob.core.windows.net/@container@/@path@/@proj@/files" "./files/" @del@',param)
   print(cmd)
   terminals = terminalList()
   if(length(terminals) == 0){
