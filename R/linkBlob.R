@@ -4,7 +4,7 @@
 #' @export
 #' @author Daniel Fischer
 
-linkFiles = function(){
+linkBlob = function(){
   if(version$os == "mingw32"){
     print('linux AWS only function')
     return(FALSE)
