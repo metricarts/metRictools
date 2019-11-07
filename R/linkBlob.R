@@ -20,7 +20,7 @@ linkBlob = function(){
       file.symlink(paste0(repo_folder,current_repo,"/files"), "./files")
     }
   }else{
-    print("repository does not exist or run toBlob() to create repo structure")
+    print("repository does not exist or run moveFiles() to create repo structure")
   }
   
 }
